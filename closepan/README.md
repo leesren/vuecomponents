@@ -1,0 +1,46 @@
+# usage
+* 自己定义 `expansion-panel__body`的`transition`
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cn.vuejs.org/js/vue.js"></script>
+  <style>
+    .expansion-panel__body {
+      background-color: rgba(0, 0, 0, .03);
+
+       transition: .3s cubic-bezier(.25, .8, .25, 1) 
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button slot="header" @click="active=!active">toggle closepan</button>
+    <closepan v-model="active">
+      <h3 v-for="i in 10"> i'm in closepan{{i}}</h3>
+    </closepan> 
+  </div>
+  <script src="./dist/closepan.min.js"></script>
+  <script>
+    app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          active: true
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
+
+```
